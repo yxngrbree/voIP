@@ -12,19 +12,19 @@ class VoIPApp:
         self.root = root
         self.root.title("Fepo Voice Chat")
 
-        # Create a UDP socket
+      
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        # Bind the socket to a specific address and port
+      
         self.sock.bind((HOST, PORT))
 
-        # Create audio playback stream
+        
         self.stream = sd.OutputStream(channels=2, callback=self.play_audio)
         self.stream.start()
 
-        # Create GUI elements with themed styling
+    
         self.style = ttk.Style()
-        self.style.theme_use('clam')  # Choose a theme (e.g., 'clam', 'alt', 'vista', etc.)
+        self.style.theme_use('clam')  
 
         self.label = ttk.Label(root, text="Listening on {}:{}".format(HOST, PORT), font=('Helvetica', 14))
         self.label.pack(pady=10)
@@ -54,7 +54,7 @@ class VoIPApp:
         self.label.config(text="VoIP in progress...", foreground='green')
 
     def stop_voip(self):
-        # Stop the thread for receiving audio
+       
         self.receive_thread.join()
 
         self.start_button.config(state=tk.NORMAL)
@@ -62,7 +62,7 @@ class VoIPApp:
         self.label.config(text="Listening on {}:{}".format(HOST, PORT), foreground='black')
 
     def close_socket(self):
-        # Close the socket
+ 
         self.sock.close()
         self.stream.stop()
 
@@ -70,8 +70,8 @@ def main():
     root = tk.Tk()
     app = VoIPApp(root)
     root.protocol("WM_DELETE_WINDOW", app.close_socket)
-    root.geometry("300x200")  # Set initial window size
-    root.resizable(False, False)  # Disable window resizing
+    root.geometry("300x200")  
+    root.resizable(False, False)  
     root.mainloop()
 
 if __name__ == "__main__":
