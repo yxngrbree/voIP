@@ -1,7 +1,7 @@
-# Fepo Voice Chat
+# Voice Chat
 
 ## Description
-Fepo Voice Chat is a simple VoIP (Voice over IP) application built using Python. It utilizes the `socket` module for network communication, `sounddevice` for audio handling, and `tkinter` for the graphical user interface.
+Voice Chat is a simple VoIP (Voice over IP) application built using Python. It utilizes the `socket` module for network communication, `sounddevice` for audio handling, and `tkinter` for the graphical user interface.
 
 ## Features
 - Uses UDP sockets for low-latency voice transmission.
